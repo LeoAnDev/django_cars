@@ -43,5 +43,8 @@ py manage.py startapp cars
 # Instalar a biblioteca dotenv
 pip install python-dotenv
 
-# Permitir quais fontes pode acessar
-pip install django-csp
+# Criar aplicação
+py manage.py startapp brands
+
+# Gerenciar imagens
+py -m pip install Pillow

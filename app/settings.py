@@ -35,6 +35,7 @@ ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
 
 INSTALLED_APPS = [
     # Minhas Apps
+    "brands",
     "cars",
 
     # Apps Nativas
@@ -142,3 +143,12 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+STATUS_CHOICES = (
+    ("", "Selecione ..."),
+    ("Visível", "Visível"),
+    ("Invisível", "Invisível"),
+)
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "medias")
+MEDIA_URL = "/medias/"
