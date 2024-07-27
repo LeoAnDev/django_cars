@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from dotenv import load_dotenv
 from pathlib import Path
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,18 +27,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
+DEBUG = True
 
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
     # Minhas Apps
+    "accounts",
     "brands",
     "cars",
-
     # Apps Nativas
     "django.contrib.admin",
     "django.contrib.auth",
@@ -58,22 +59,22 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-# Utilize a biblioteca django-secure ou configure manualmente os headers HTTP de segurança para prevenir ataques comuns como XSS, clickjacking, etc
+# Utilize a biblioteca django-secure ou configure manualmente os headers HTTP de segurança para prevenir ataques
+# comuns como XSS, clickjacking, etc
 SECURE_BROWSER_XSS_FILTER = True
-X_FRAME_OPTIONS = 'DENY'
+X_FRAME_OPTIONS = "DENY"
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
 # Configure as sessões para maior segurança, especialmente em produção
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-SECURE_BROWSER_XSS_FILTER = True
 
 ROOT_URLCONF = "app.urls"
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, "app/templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -111,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
         "OPTIONS": {
             "min_length": 8,
-        }
+        },
     },
     {
         "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
@@ -150,5 +151,5 @@ STATUS_CHOICES = (
     ("Invisível", "Invisível"),
 )
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "medias")
 MEDIA_URL = "/medias/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "medias/")

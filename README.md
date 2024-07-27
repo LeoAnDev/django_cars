@@ -48,3 +48,6 @@ py manage.py startapp brands
 
 # Gerenciar imagens
 py -m pip install Pillow
+
+# Criar o requeriments.txt
+pip freeze > requeriments.txt

@@ -1,3 +1,6 @@
+"""
+brands/admin.py
+"""
 from django.contrib import admin
 
 from brands.models import Brand

@@ -1,3 +1,5 @@
-from django.shortcuts import render
+"""
+brands/views.py
+"""
 
 # Create your views here.
