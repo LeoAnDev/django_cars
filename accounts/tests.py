@@ -1,3 +1,7 @@
-from django.test import TestCase
+"""
+accounts/tests.py
+"""
+
+# from django.test import TestCase
 
 # Create your tests here.
