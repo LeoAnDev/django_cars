@@ -92,12 +92,6 @@ py -m pip install Pillow
 pip freeze > requirements.txt
 ````
 
-# Instalar IA
-
-````bash
-pip install openai
-````
-
 # Instalar PostgreSQL
 
 ````bash
